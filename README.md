@@ -1,3 +1,3 @@
-# pterodactyl-nginx
+# pterodactyl-nginx reverse/proxy
 
-self explanatory
+### Self explanatory

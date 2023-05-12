@@ -4,9 +4,9 @@
         "version": "PTDL_v1"
     },
     "exported_at": "2018-10-31T12:16:49-04:00",
-    "name": "Nginx",
-    "author": "unknown@unknown.com",
-    "description": "Nginx",
+    "name": "Nginx-Stream",
+    "author": "kaiy@v-v.host",
+    "description": "Nginx Reverse Proxy",
     "image": "registry.gitlab.com\/tenten8401\/pterodactyl-nginx",
     "startup": "{{STARTUP_CMD}}",
     "config": {
