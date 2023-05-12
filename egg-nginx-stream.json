@@ -45,7 +45,7 @@
             "default_value": "127.0.0.1:8080",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|string|max:20",
+            "rules": "required|string|max:40",
             "field_type": "text"
         }
     ]
