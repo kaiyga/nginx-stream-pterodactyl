@@ -1,23 +1,28 @@
 {
     "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
     "meta": {
-        "version": "PTDL_v1"
+        "version": "PTDL_v2",
+        "update_url": null
     },
-    "exported_at": "2018-10-31T12:16:49-04:00",
+    "exported_at": "2023-05-12T22:55:34+03:00",
     "name": "Nginx-Stream",
     "author": "kaiy@v-v.host",
     "description": "Nginx Reverse Proxy",
-    "image": "registry.gitlab.com\/tenten8401\/pterodactyl-nginx",
+    "features": null,
+    "docker_images": {
+        "ghcr.io\/kaiyga\/vectordocs:nginx-stream": "ghcr.io\/kaiyga\/vectordocs:nginx-stream"
+    },
+    "file_denylist": [],
     "startup": "{{STARTUP_CMD}}",
     "config": {
-        "files": "{\r\n    \"nginx\/conf.d\/default.conf\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"    listen \": \"    listen {{server.build.default.port}};\"\r\n        }\r\n    }\r\n}",
+        "files": "{\r\n    \"nginx\/conf.d\/stream.conf\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"        listen \": \"        listen  {{server.build.default.port}};\",\r\n            \"        proxy_pass \": \"        proxy_pass {{env.REMOTE_SERVER}};\"\r\n        }\r\n    }\r\n}",
         "startup": "{\r\n    \"done\": \"\",\r\n    \"userInteraction\": []\r\n}",
         "logs": "{\r\n    \"custom\": false,\r\n    \"location\": \"logs\/latest.log\"\r\n}",
-        "stop": "^C"
+        "stop": "stop"
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/ash\r\n\r\ncd \/mnt\/server\r\n\r\napk --update add git\r\n\r\ngit clone https:\/\/gitlab.com\/tenten8401\/pterodactyl-nginx .\/temp\r\n\r\ncp -r .\/temp\/nginx \/mnt\/server\/\r\ncp -r .\/temp\/php-fpm \/mnt\/server\/\r\ncp -r .\/temp\/webroot \/mnt\/server\/\r\ncp .\/temp\/start.sh \/mnt\/server\/\r\n\r\nchmod +x \/mnt\/server\/start.sh\r\n\r\nrm -rf .\/temp",
+            "script": "#!\/bin\/ash\r\n\r\ncd \/mnt\/server\r\n\r\napk --update add git\r\n\r\ngit clone https:\/\/github.com\/kaiyga\/pterodactyl-nginx .\/temp\r\n\r\ncp -r .\/temp\/nginx \/mnt\/server\/\r\ncp .\/temp\/start.sh \/mnt\/server\/\r\n\r\nchmod +x \/mnt\/server\/start.sh\r\n\r\nrm -rf .\/temp\r\ncat \/home\/container\/nginx\/conf.d\/stream.conf",
             "container": "alpine:latest",
             "entrypoint": "ash"
         }
@@ -28,9 +33,20 @@
             "description": "The command to start",
             "env_variable": "STARTUP_CMD",
             "default_value": ".\/start.sh",
-            "user_viewable": 1,
-            "user_editable": 1,
-            "rules": "present"
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "present",
+            "field_type": "text"
+        },
+        {
+            "name": "Remote Server",
+            "description": "Where proxy?",
+            "env_variable": "REMOTE_SERVER",
+            "default_value": "127.0.0.1:8080",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20",
+            "field_type": "text"
         }
     ]
 }
