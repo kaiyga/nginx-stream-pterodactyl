@@ -9,5 +9,6 @@
     
 ```
 #In admin panel 
-Nest > Import Egg > (Change Nest Category) >  (Import) > (Go to bottom settings) > Save```
+Nest > Import Egg > (Change Nest Category) >  (Import) > (Go to bottom settings) > Save
+```
 
