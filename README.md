@@ -12,4 +12,4 @@
 Nest > Import Egg > (Change Nest Category) >  (Import) > (Go to bottom settings) > Save
 ```
 <img src="https://media.discordapp.net/attachments/836256210080366602/1110924769035038792/image.png?width=720&height=397"><img>
-nginx-chan XD
+nginx-chanXD
