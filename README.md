@@ -1,6 +1,6 @@
 <h1>pterodactyl-nginx reverse/proxy</h1>
 
-<h3>Its fork of pterodactyl-nginx by [Isaac A](https://gitlab.com/tenten8401/pterodactyl-nginx)</h3>
+<h3>Its fork of pterodactyl-nginx by <a href=https://gitlab.com/tenten8401/pterodactyl-nginx">Isaac A</a> </h3>
 
 <h2>Install on pterodactyl</h2>
 
