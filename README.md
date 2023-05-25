@@ -4,7 +4,7 @@
 
 <h2>Install on pterodactyl</h2>
 
-[Download Egg](https://github.com/kaiyga/pterodactyl-nginx/blob/main/egg-nginx-stream.json)
+<a href="https://github.com/kaiyga/pterodactyl-nginx/blob/main/egg-nginx-stream.json">Download Egg</a>
 
     
 ```
