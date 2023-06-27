@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2023-05-12T22:55:34+03:00",
+    "exported_at": "2023-06-27T10:33:14+03:00",
     "name": "Nginx-Stream",
     "author": "kaiy@v-v.host",
     "description": "Nginx Reverse Proxy",
@@ -15,10 +15,10 @@
     "file_denylist": [],
     "startup": "{{STARTUP_CMD}}",
     "config": {
-        "files": "{\r\n    \"nginx\/conf.d\/stream.conf\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"        listen \": \"        listen  {{server.build.default.port}};\",\r\n            \"        proxy_pass \": \"        proxy_pass {{env.REMOTE_SERVER}};\"\r\n        }\r\n    }\r\n}",
+        "files": "{\r\n    \"nginx\/conf.d\/stream.conf\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"    listen \": \"    listen  {{server.build.default.port}};\",\r\n            \"    proxy_pass \": \"    proxy_pass {{env.REMOTE_SERVER}};\",\r\n            \"     listen \": \"     listen  {{server.build.default.port}} udp;\"\r\n        }\r\n    }\r\n}",
         "startup": "{\r\n    \"done\": \"\",\r\n    \"userInteraction\": []\r\n}",
         "logs": "{\r\n    \"custom\": false,\r\n    \"location\": \"logs\/latest.log\"\r\n}",
-        "stop": "stop"
+        "stop": "^D"
     },
     "scripts": {
         "installation": {
@@ -45,7 +45,7 @@
             "default_value": "127.0.0.1:8080",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|string|max:40",
+            "rules": "required|string|max:120",
             "field_type": "text"
         }
     ]
